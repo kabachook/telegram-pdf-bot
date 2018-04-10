@@ -6,5 +6,7 @@ module.exports = {
       NODE_ENV: 'production',
       BOT_TOKEN: '',
     },
+    watch: true,
+    instances: 1,
   }],
 };
