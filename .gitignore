@@ -1,0 +1,4 @@
+dist/
+storage/*
+node_modules/
+.vscode/

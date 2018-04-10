@@ -1,0 +1,33 @@
+{
+  "name": "telegram-pdf-bot",
+  "description": "Telegram bot for saving web pages to pdf files",
+  "version": "1.0.0",
+  "homepage": "https://github.com/kabachook/telegram-pdf-bot",
+  "bugs":"https://github.com/kabachook/telegram-pdf-bot/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kabachook/telegram-pdf-bot.git"
+  },
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^1.2.0",
+    "telegraf": "^3.20.0",
+    "uuid": "^3.2.1"
+  },
+  "scripts": {
+    "dev": "babel-node src/index.js",
+    "build": "cross-env NODE_ENV=production babel src -d dist",
+    "serve": "cross-env NODE_ENV=production BOT_TOKEN='' node dist/index.js"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.2",
+    "babel-preset-latest-node": "^1.0.0",
+    "cross-env": "^5.1.4",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.10.0",
+    "nodemon": "^1.17.3"
+  }
+}
