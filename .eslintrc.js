@@ -5,7 +5,7 @@ module.exports = {
         "import"
     ],
     "rules": {
-        "linebreak-style": ["error", "windows"]
+        "linebreak-style": "off"
     },
     "env": {
         "node": true,
