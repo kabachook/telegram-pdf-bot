@@ -17,9 +17,9 @@
   },
   "scripts": {
     "dev": "babel-node src/index.js",
-    "build": "cross-env NODE_ENV=production babel src -d dist",
-    "serve": "cross-env NODE_ENV=production BOT_TOKEN='' node dist/index.js",
-    "test": "mocha -t 10000"
+    "build": "yarn cross-env NODE_ENV=production babel src -d dist",
+    "serve": "yarn cross-env NODE_ENV=production BOT_TOKEN='' node dist/index.js",
+    "test": "yarn mocha -t 10000"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
