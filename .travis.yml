@@ -6,13 +6,16 @@ node_js: "9"
 services:
   - docker
 
+cache:
+  yarn: true
+
 jobs:
   include:
     - stage: build and test
       script:
         - export PATH=$PATH:`yarn bin`
-        - yarn build
-        - yarn test
+        - ./node_modules/.bin/babel src -d dist
+        - ./node_modules/.bin/mocha -t 10000
     - stage: build docker image
       script:
         - docker build -t kabachook/telegram-pdf-bot
