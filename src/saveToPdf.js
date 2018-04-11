@@ -13,4 +13,5 @@ export default async (url, path) => {
     height: '1080px',
   });
   await browser.close();
+  return 0;
 };

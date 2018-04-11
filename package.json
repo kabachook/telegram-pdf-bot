@@ -3,7 +3,7 @@
   "description": "Telegram bot for saving web pages to pdf files",
   "version": "1.0.0",
   "homepage": "https://github.com/kabachook/telegram-pdf-bot",
-  "bugs":"https://github.com/kabachook/telegram-pdf-bot/issues",
+  "bugs": "https://github.com/kabachook/telegram-pdf-bot/issues",
   "repository": {
     "type": "git",
     "url": "https://github.com/kabachook/telegram-pdf-bot.git"
@@ -18,7 +18,8 @@
   "scripts": {
     "dev": "babel-node src/index.js",
     "build": "cross-env NODE_ENV=production babel src -d dist",
-    "serve": "cross-env NODE_ENV=production BOT_TOKEN='' node dist/index.js"
+    "serve": "cross-env NODE_ENV=production BOT_TOKEN='' node dist/index.js",
+    "test": "mocha -t 10000"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -28,6 +29,8 @@
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.10.0",
+    "eslint-plugin-mocha": "^5.0.0",
+    "mocha": "^5.0.5",
     "nodemon": "^1.17.3"
   }
 }
