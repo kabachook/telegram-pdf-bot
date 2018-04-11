@@ -1,0 +1,14 @@
+sudo: required
+
+language: node_js
+node_js: "latest"
+
+services:
+  - docker
+
+before_install:
+  - docker build -t kabachook/telegram-pdf-bot .
+  - docker run kabachook/telegram-pdf-bot /bin/sh -c "cd /app; yarn test;"
+
+install: yarn install && yarn build
+script: yarn test
