@@ -10,10 +10,10 @@ jobs:
   include:
     - stage: build and test
       script:
-        - yarn install
+        - export PATH=$PATH:`yarn bin`
         - yarn build
         - yarn test
     - stage: build docker image
       script:
         - docker build -t kabachook/telegram-pdf-bot
-        - docker run kabachook/telegram-pdf-bot /bin/sh -c "cd /app; yarn test;"
+        - docker run kabachook/telegram-pdf-bot /bin/bash -c "cd /app;export PATH=$PATH:`yarn bin`;yarn test;"
