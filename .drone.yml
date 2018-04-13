@@ -1,0 +1,7 @@
+pipeline:
+  build:
+    image: node:slim
+    commands:
+      - yarn
+      - yarn build
+      - yarn test

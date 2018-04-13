@@ -1,4 +1,4 @@
-FROM keymetrics/pm2:latest-latest-stretch
+FROM keymetrics/pm2:latest-stretch
 
 WORKDIR /app
 
