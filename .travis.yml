@@ -7,16 +7,15 @@ services:
   - docker
 
 cache:
-  yarn: true
+  npm: true
 
 jobs:
   include:
     - stage: build and test
       script:
-        - export PATH=$PATH:`yarn bin`
-        - ./node_modules/.bin/babel src -d dist
-        - ./node_modules/.bin/mocha -t 10000
+        - npm build
+        - npm test
     - stage: build docker image
       script:
-        - docker build -t kabachook/telegram-pdf-bot
+        - docker build -t kabachook/telegram-pdf-bot .
         - docker run kabachook/telegram-pdf-bot /bin/bash -c "cd /app;export PATH=$PATH:`yarn bin`;yarn test;"

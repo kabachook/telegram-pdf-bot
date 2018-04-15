@@ -24,11 +24,9 @@ RUN apt-get update && apt-get install -y wget --no-install-recommends \
     && apt-get purge --auto-remove -y curl \
     && rm -rf /src/*.deb
 
-RUN yarn global add pm2 && yarn add puppeteer && yarn cache clean
+RUN npm -g i pm2 && npm i puppeteer && npm cache clean
 
-RUN yarn install && \
-    yarn build && \
-    yarn test
+RUN /bin/sh -c "npm install && npm run build && npm test"
 
 ENTRYPOINT [ "dumb-init","--" ]
 CMD ["pm2-runtime","start","ecosystem.config.js"]

@@ -1,1 +1,1 @@
-worker: yarn build && yarn serve
+worker: npm build && npm serve
