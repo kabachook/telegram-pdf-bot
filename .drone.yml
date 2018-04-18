@@ -1,4 +1,11 @@
 pipeline:
+  build:
+    image: node:latest
+    commands:
+      - export NODE_ENV=production
+      - npm install
+      - npx babel src -d dist
+      - npx mocha -t 20000
   docker:
     image: plugins/docker
     repo: kabachook/telegram-pdf-bot

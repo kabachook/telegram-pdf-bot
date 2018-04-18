@@ -13,9 +13,10 @@ jobs:
   include:
     - stage: build and test
       script:
-        - npm build
-        - npm test
+        - export NODE_ENV=production
+        - npx babel src -d dist
+        - npx mocha -t 20000
     - stage: build docker image
       script:
         - docker build -t kabachook/telegram-pdf-bot .
-        - docker run kabachook/telegram-pdf-bot /bin/bash -c "cd /app;export PATH=$PATH:`yarn bin`;yarn test;"
+        - docker run kabachook/telegram-pdf-bot /bin/sh -c "cd /app;NODE_ENV=production npx mocha -t 20000;"

@@ -1,4 +1,4 @@
-FROM node:slim
+FROM node:latest
 
 WORKDIR /app
 
@@ -24,9 +24,9 @@ RUN apt-get update && apt-get install -y wget --no-install-recommends \
     && apt-get purge --auto-remove -y curl \
     && rm -rf /src/*.deb
 
-RUN npm -g i pm2 && npm i puppeteer && npm cache clean
+RUN npm -g i pm2 && npm i puppeteer
 
-RUN /bin/sh -c "npm install && npm run build && npm test"
+RUN /bin/sh -c "npm install && npx babel src -d dist && npx mocha -t 20000"
 
 ENTRYPOINT [ "dumb-init","--" ]
 CMD ["pm2-runtime","start","ecosystem.config.js"]
